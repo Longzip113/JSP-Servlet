@@ -1,0 +1,22 @@
+package com.longnguyen.service.impl;
+
+import java.util.List;
+
+import com.longnguyen.dao.ICategoryDAO;
+import com.longnguyen.model.CategoryModel;
+import com.longnguyen.service.ICategoryService;
+
+public class CategoryService implements ICategoryService{
+
+	private ICategoryDAO iCategoryDAO;
+	
+	public CategoryService() {
+		
+	}
+
+	@Override
+	public List<CategoryModel> findAll() {
+		// TODO Auto-generated method stub
+		return iCategoryDAO.findAll();
+	}
+}

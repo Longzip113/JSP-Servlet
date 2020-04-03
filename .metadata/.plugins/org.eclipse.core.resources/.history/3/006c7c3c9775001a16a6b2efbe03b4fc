@@ -1,0 +1,9 @@
+package com.longnguyen.dao;
+
+import java.util.List;
+
+import com.longnguyen.model.CategoryModel;
+
+public interface ICategoryModel {
+	List<CategoryModel> findAll ();
+}

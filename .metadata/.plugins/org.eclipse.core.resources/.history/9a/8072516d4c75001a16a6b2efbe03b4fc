@@ -1,0 +1,5 @@
+package com.longnguyen.controller.web;
+
+public class HomeController {
+
+}

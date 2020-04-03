@@ -1,0 +1,16 @@
+package com.longnguyen.dao.impl;
+
+import java.util.List;
+
+import com.longnguyen.dao.ICategoryModel;
+import com.longnguyen.model.CategoryModel;
+
+public class CategoryDAO implements ICategoryModel{
+
+	@Override
+	public List<CategoryModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

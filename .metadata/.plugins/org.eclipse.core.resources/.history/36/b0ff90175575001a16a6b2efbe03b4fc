@@ -1,0 +1,5 @@
+package com.longnguyen.model;
+
+public class UserModel {
+
+}

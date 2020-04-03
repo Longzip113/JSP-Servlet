@@ -1,0 +1,7 @@
+package com.longnguyen.dao.impl;
+
+import com.longnguyen.dao.ICategoryModel;
+
+public class CategoryDAO implements ICategoryModel{
+
+}
