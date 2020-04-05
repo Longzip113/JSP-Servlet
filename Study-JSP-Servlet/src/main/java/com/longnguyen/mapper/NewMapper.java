@@ -13,6 +13,8 @@ public class NewMapper implements RowMapper<NewModel>{
 			NewModel newModel = new NewModel();
 			newModel.setId(resultSet.getLong("id"));
 			newModel.setTitle(resultSet.getString("title"));
+			newModel.setContent(resultSet.getString("content"));
+			newModel.setCategoryId(resultSet.getLong("categoryId"));
 			return newModel;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

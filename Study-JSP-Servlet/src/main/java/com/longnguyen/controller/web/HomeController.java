@@ -15,7 +15,7 @@ import com.longnguyen.service.ICategoryService;
 import com.longnguyen.service.INewService;
 
 
-@WebServlet(urlPatterns = {"/web-home"})
+@WebServlet(urlPatterns = {"/web-hom"})
 public class HomeController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -32,16 +32,16 @@ public class HomeController extends HttpServlet{
 //		UserModel model = new UserModel();
 //		model.setUserName("Longnguyen");
 //		req.setAttribute("model",model); // in data ra client
-		Long categoryId = 1L;
+//		Long categoryId = 1L;
 //		req.setAttribute("news", newService.findByCategoryId(categoryId));
-		String title = "Bai viet mau";
-		String content = "Content bai viet";
-		NewModel newModel = new NewModel();
-		newModel.setCategoryId(categoryId);
-		newModel.setContent(content);
-		newModel.setTitle(title);
-		newService.save(newModel);
-		req.setAttribute("categorys", iCategoryService.findAll());
+//		String title = "Bai viet mau";
+//		String content = "Content bai viet";
+//		NewModel newModel = new NewModel();
+//		newModel.setCategoryId(categoryId);
+//		newModel.setContent(content);
+//		newModel.setTitle(title);
+//		newService.save(newModel);
+//		req.setAttribute("categorys", iCategoryService.findAll());
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/web/home.jsp");
 		requestDispatcher.forward(req, resp);
 	}

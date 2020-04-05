@@ -20,4 +20,12 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 		return insert(sql, newModel.getTitle(), newModel.getContent(), newModel.getCategoryId());
 	}
 
+	@Override
+	public NewModel findOne(Long id) {
+		String sql = "SELECT * FROM news WHERE id = ?";
+		List<NewModel> news = Query(sql, new NewMapper(), id);
+		
+		return news.isEmpty() ? null : news.get(0);
+	}
+
 }
