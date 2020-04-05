@@ -1,5 +1,0 @@
-package com.longnguyen.dao;
-
-public interface ICategoryModel {
-
-}

@@ -1,5 +1,9 @@
 package com.longnguyen.service;
 
-public interface INewService {
+import java.util.List;
 
+import com.longnguyen.model.NewModel;
+
+public interface INewService {
+	List<NewModel> findByCategoryId(Long categoryId);
 }

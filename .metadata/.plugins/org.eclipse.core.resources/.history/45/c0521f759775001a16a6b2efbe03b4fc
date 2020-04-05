@@ -1,7 +1,0 @@
-package com.longnguyen.service.impl;
-
-import com.longnguyen.service.ICategoryService;
-
-public class CategoryService implements ICategoryService{
-
-}

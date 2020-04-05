@@ -1,5 +1,9 @@
 package com.longnguyen.dao;
 
-public interface INewDAO {
+import java.util.List;
 
+import com.longnguyen.model.NewModel;
+
+public interface INewDAO extends GenericDao <NewModel>{
+	List<NewModel> findByCategoryId(Long categoryId); 
 }
