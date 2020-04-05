@@ -19,4 +19,11 @@ public class NewService implements INewService{
 		return newDAO.findByCategoryId(categoryId);
 	}
 
+	@Override
+	public NewModel save(NewModel newModel) {
+		Long newID = newDAO.save(newModel);
+		System.out.println(newID);
+		return null;
+	}
+
 }
