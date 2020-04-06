@@ -6,10 +6,9 @@ public class NewModel extends AbstracsModel{
 	private String title;
 	private String thumbnuil;
 	private String shortDescripTion;
-
 	private String content;
-
 	private long categoryId;
+
 	
 
 	public String getTitle() {

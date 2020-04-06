@@ -9,6 +9,7 @@ public class AbstracsModel {
 	private Timestamp modifiedData;
 	private String createdBy;
 	private String modifiedBy;
+	private Long[] ids;
 	
 	
 	
@@ -42,6 +43,12 @@ public class AbstracsModel {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public Long[] getIds() {
+		return ids;
+	}
+	public void setIds(Long[] ids) {
+		this.ids = ids;
 	}
 	
 	
