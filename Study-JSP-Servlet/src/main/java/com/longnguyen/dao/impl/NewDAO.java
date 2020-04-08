@@ -5,6 +5,7 @@ import java.util.List;
 import com.longnguyen.dao.INewDAO;
 import com.longnguyen.mapper.NewMapper;
 import com.longnguyen.model.NewModel;
+import com.longnguyen.paging.Pageble;
 
 public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 
@@ -21,9 +22,9 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 		sql.append("INSERT INTO news  ");
 		sql.append(" (title, content, thumbnail, shortDescripTion, categoryid, createddate, createdby) ");
 		sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
-		return insert(sql.toString(), newModel.getTitle(), newModel.getContent(),
-				newModel.getThumbnuil(),newModel.getShortDescripTion(), newModel.getCategoryId(),
-				newModel.getCreatedData(),newModel.getCreatedBy());
+		return insert(sql.toString(), newModel.getTitle(), newModel.getContent(), newModel.getThumbnuil(),
+				newModel.getShortDescripTion(), newModel.getCategoryId(), newModel.getCreatedData(),
+				newModel.getCreatedBy());
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 
 		update(sql.toString(), newModel.getTitle(), newModel.getThumbnuil(), newModel.getShortDescripTion(),
 				newModel.getContent(), newModel.getCategoryId(), newModel.getCreatedData(), newModel.getCreatedBy(),
-				newModel.getModifiedData(),newModel.getModifiedBy(),newModel.getId());
+				newModel.getModifiedData(), newModel.getModifiedBy(), newModel.getId());
 
 	}
 
@@ -54,9 +55,17 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 	}
 
 	@Override
-	public List<NewModel> findAll(Integer offset, Integer limit) {
-		String sql = "SELECT * FROM news LIMIT ?, ?";
-		return Query(sql, new NewMapper(),offset, limit);
+	public List<NewModel> findAll(Pageble pageble) {
+		// String sql = "SELECT * FROM news LIMIT ?, ?";
+		StringBuilder sql = new StringBuilder("SELECT * FROM news");
+		if (pageble.getSorter() != null) {
+			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
+		}
+		if (pageble.getOffset() != null &&pageble.getLimit() != null) {
+			sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit() + "");
+		}
+		return Query(sql.toString(), new NewMapper());
+
 	}
 
 	@Override

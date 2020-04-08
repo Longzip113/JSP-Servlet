@@ -17,6 +17,8 @@ public class AbstracsModel<T> {
 	private Integer maxPageItem; //So item tren mot page
 	private Integer totalPage; // tong so page
 	private Integer totalItem; // tong so page
+	private String sortName;
+	private String sortBy;
 	
 	
 	
@@ -85,6 +87,18 @@ public class AbstracsModel<T> {
 	}
 	public void setTotalItem(Integer totalItem) {
 		this.totalItem = totalItem;
+	}
+	public String getSortName() {
+		return sortName;
+	}
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
+	}
+	public String getSortBy() {
+		return sortBy;
+	}
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
 	}
 	
 	

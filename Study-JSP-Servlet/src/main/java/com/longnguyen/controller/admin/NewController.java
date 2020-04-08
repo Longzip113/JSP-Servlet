@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.longnguyen.constant.SystemConstant;
 import com.longnguyen.model.NewModel;
+import com.longnguyen.paging.Pageble;
+import com.longnguyen.paging.pageRequest;
 import com.longnguyen.service.INewService;
+import com.longnguyen.sort.Sorter;
+import com.longnguyen.utils.FormUtils;
 
 
 @WebServlet(urlPatterns = {"/admin-new"})
@@ -25,22 +29,16 @@ public class NewController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NewModel newModel = new NewModel();
-		String pageString = req.getParameter("page");
-		String maxPageItem = req.getParameter("maxPageItem");
-		if (pageString != null) {
-			newModel.setPage(Integer.parseInt(pageString));
-		} else {
-			newModel.setPage(1);
-		}
+		req.getParameter("page");
 		
-		if (maxPageItem != null) {
-			newModel.setMaxPageItem(Integer.parseInt(maxPageItem));
-		}
-		Integer offset = (newModel.getPage() - 1) * newModel.getMaxPageItem();
-		newModel.setListResult(newService.findAll(offset, newModel.getMaxPageItem()));
+		NewModel newModel = FormUtils.toModel(NewModel.class, req);
+		Pageble pageble = new pageRequest(newModel.getPage(), newModel.getMaxPageItem(),
+				new Sorter(newModel.getSortName(), newModel.getSortBy()));
+		
+		newModel.setListResult(newService.findAll(pageble));
 		newModel.setTotalItem(newService.getTotalItem());
 		newModel.setTotalPage((int) Math.ceil((double) newModel.getTotalItem() / newModel.getMaxPageItem()));
+		
 		req.setAttribute(SystemConstant.MODEL,newModel);
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/admin/new/list.jsp");
 		requestDispatcher.forward(req, resp);

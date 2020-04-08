@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import com.longnguyen.dao.INewDAO;
 import com.longnguyen.model.NewModel;
+import com.longnguyen.paging.Pageble;
 import com.longnguyen.service.INewService;
 
 public class NewService implements INewService {
@@ -49,8 +50,8 @@ public class NewService implements INewService {
 	}
 
 	@Override
-	public List<NewModel> findAll(Integer offset, Integer limit) {
-		return newDAO.findAll(offset, limit);
+	public List<NewModel> findAll(Pageble pageble) {
+		return newDAO.findAll(pageble);
 	}
 
 	@Override
