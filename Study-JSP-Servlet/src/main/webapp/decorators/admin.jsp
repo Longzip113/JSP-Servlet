@@ -30,16 +30,16 @@
 	<link rel="stylesheet"
 		href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script
 		src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
-
-	<script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
+		
 </head>
 <body class="no-skin">
 	<!-- header -->
 	<%@ include file="/common/admin/header.jsp"%>
-    <!-- header -->
-	
+	<!-- header -->
+
 	<div class="main-container" id="main-container">
 		<script type="text/javascript">
 			try {
@@ -47,24 +47,24 @@
 			} catch (e) {
 			}
 		</script>
-		
+
 		<!-- menu -->
-    	<%@ include file="/common/admin/menu.jsp"%>
-    	<!-- menu -->
-		
+		<%@ include file="/common/admin/menu.jsp"%>
+		<!-- menu -->
+
 		<dec:body />
-		
+
 		<!-- footer -->
-    	<%@ include file="/common/admin/footer.jsp"%>
-    	<!-- footer -->
-    	
-    	<a href="#" id="btn-scroll-up"
-			class="btn-scroll-up btn btn-sm btn-inverse display">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		<%@ include file="/common/admin/footer.jsp"%>
+		<!-- footer -->
+
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse display"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 		</a>
 	</div>
-	
-	
+
+
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 	<script
@@ -86,7 +86,7 @@
 	<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
 	<script
 		src="<c:url value='/template/admin/assets/js/bootstrap.min.js'/>"></script>
-	
+
 	<!-- page specific plugin scripts -->
 	<script
 		src="<c:url value='/template/admin/assets/js/jquery-ui.min.js'/>"></script>

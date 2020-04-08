@@ -160,4 +160,39 @@ public class AbsTractDAO<T> implements GenericDao<T> {
 		}
 		return id;
 	}
+
+	@Override
+	public int count(String sql, Object... parameters) {
+		
+		ResultSet resultSet = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int count = 0;
+		try {
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			setParameter(statement, parameters);
+			statement.executeUpdate(); // use for all
+			resultSet = statement.getGeneratedKeys(); // vì hệ thống tự tạo id nên phải grnera đúng id
+			if (resultSet.next()) {
+				count = resultSet.getInt(1); //return id tự tăng 
+			}
+			connection.commit();
+			return count;
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 }

@@ -42,7 +42,20 @@ public class NewService implements INewService {
 	@Override
 	public void delete(Long[] ids) {
 		for (Long id : ids) {
+			//1. Delete comment (Khoa ngoai new_id)
+			//2. Delete new
 			newDAO.delete(id);
 		}
 	}
+
+	@Override
+	public List<NewModel> findAll(Integer offset, Integer limit) {
+		return newDAO.findAll(offset, limit);
+	}
+
+	@Override
+	public int getTotalItem() {
+		return newDAO.getTotalItem();
+	}
+	
 }

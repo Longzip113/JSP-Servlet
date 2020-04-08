@@ -1,7 +1,7 @@
 package com.longnguyen.model;
 
 
-public class CategoryModel extends AbstracsModel{
+public class CategoryModel extends AbstracsModel<CategoryModel>{
 
 	private String code;
 	private String name;

@@ -1,6 +1,6 @@
 package com.longnguyen.model;
 
-public class NewModel extends AbstracsModel{
+public class NewModel extends AbstracsModel<NewModel>{
 
 
 	private String title;

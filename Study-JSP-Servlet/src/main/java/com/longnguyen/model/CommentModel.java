@@ -1,7 +1,7 @@
 package com.longnguyen.model;
 
 
-public class CommentModel extends AbstracsModel{
+public class CommentModel extends AbstracsModel<CommentModel>{
 
 	private int userID;
 	private int newID;

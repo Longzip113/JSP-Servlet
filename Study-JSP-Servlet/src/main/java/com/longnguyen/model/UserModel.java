@@ -1,7 +1,7 @@
 package com.longnguyen.model;
 
 
-public class UserModel extends AbstracsModel {
+public class UserModel extends AbstracsModel<UserModel> {
 
 	private String userName;
 	private String fullName;

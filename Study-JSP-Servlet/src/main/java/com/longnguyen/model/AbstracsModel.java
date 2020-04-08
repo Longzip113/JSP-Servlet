@@ -1,8 +1,10 @@
 package com.longnguyen.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AbstracsModel {
+public class AbstracsModel<T> {
 
 	private long id;
 	private Timestamp createdData;
@@ -10,7 +12,11 @@ public class AbstracsModel {
 	private String createdBy;
 	private String modifiedBy;
 	private Long[] ids;
-	
+	private List<T> listResult = new ArrayList<>();
+	private Integer page;
+	private Integer maxPageItem; //So item tren mot page
+	private Integer totalPage; // tong so page
+	private Integer totalItem; // tong so page
 	
 	
 	
@@ -50,6 +56,37 @@ public class AbstracsModel {
 	public void setIds(Long[] ids) {
 		this.ids = ids;
 	}
+	public List<T> getListResult() {
+		return listResult;
+	}
+	public void setListResult(List<T> listResult) {
+		this.listResult = listResult;
+	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getMaxPageItem() {
+		return maxPageItem;
+	}
+	public void setMaxPageItem(Integer maxPageItem) {
+		this.maxPageItem = maxPageItem;
+	}
+	public Integer getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
+	public Integer getTotalItem() {
+		return totalItem;
+	}
+	public void setTotalItem(Integer totalItem) {
+		this.totalItem = totalItem;
+	}
+	
 	
 	
 }

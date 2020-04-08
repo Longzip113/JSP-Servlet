@@ -1,7 +1,7 @@
 package com.longnguyen.model;
 
 
-public class RoleModel extends AbstracsModel{
+public class RoleModel extends AbstracsModel<RoleModel>{
 
 	private String code;
 	private String name;
