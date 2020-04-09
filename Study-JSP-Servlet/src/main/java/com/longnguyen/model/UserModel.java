@@ -8,7 +8,7 @@ public class UserModel extends AbstracsModel<UserModel> {
 	private String passWord;
 	private int status;
 	private long roleid;
-	
+	private RoleModel role;
 	
 	
 	
@@ -42,6 +42,12 @@ public class UserModel extends AbstracsModel<UserModel> {
 	}
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+	public RoleModel getRole() {
+		return role;
+	}
+	public void setRole(RoleModel role) {
+		this.role = role;
 	}
 	
 	

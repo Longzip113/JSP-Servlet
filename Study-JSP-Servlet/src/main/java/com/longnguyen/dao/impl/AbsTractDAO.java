@@ -11,18 +11,27 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import com.longnguyen.dao.GenericDao;
 import com.longnguyen.mapper.RowMapper;
 
 public class AbsTractDAO<T> implements GenericDao<T> {
+	
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
+	
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+//			Class.forName("com.mysql.jdbc.Driver");
+//			Properties properties = new Properties();
+//			properties.put("user", "root");
+//			properties.put("password", "long250599");
+//			return DriverManager.getConnection("jdbc:mysql://localhost:3306/NewServlet", properties);
+			Class.forName(resourceBundle.getString("driverName"));
 			Properties properties = new Properties();
-			properties.put("user", "root");
-			properties.put("password", "long250599");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/NewServlet", properties);
+			properties.put("user", resourceBundle.getString("user"));
+			properties.put("password", resourceBundle.getString("password"));
+			return DriverManager.getConnection(resourceBundle.getString("url"), properties);
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;
 		}

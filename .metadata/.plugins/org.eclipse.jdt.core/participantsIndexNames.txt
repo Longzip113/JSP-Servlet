@@ -37,6 +37,8 @@ INDEX VERSION 1.131
 /Study-JSP-Servlet/src/main/java
 /Users/longnguyen/Desktop/Dự Án JSP-Servlet/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3331891951.index
 /new-jdbc-1/src/main/java
+/Users/longnguyen/Desktop/JSP-Servlet/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1885817406.index
+/Study-JSP-Servlet/src/main/java
 /Users/longnguyen/Desktop/Dự Án JSP-Servlet/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1634248466.index
 /new-jdbc-1/src/main/java
 /Users/longnguyen/Desktop/Dự Án JSP-Servlet/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/871033796.index
