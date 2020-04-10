@@ -179,15 +179,12 @@ public class AbsTractDAO<T> implements GenericDao<T> {
 		int count = 0;
 		try {
 			connection = getConnection();
-			connection.setAutoCommit(false);
-			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement = connection.prepareStatement(sql);
 			setParameter(statement, parameters);
-			statement.executeUpdate(); // use for all
-			resultSet = statement.getGeneratedKeys(); // vì hệ thống tự tạo id nên phải grnera đúng id
-			if (resultSet.next()) {
+			resultSet = statement.executeQuery(); // use for all
+			while (resultSet.next()) {
 				count = resultSet.getInt(1); //return id tự tăng 
 			}
-			connection.commit();
 			return count;
 		} catch (SQLException e) {
 			return 0;

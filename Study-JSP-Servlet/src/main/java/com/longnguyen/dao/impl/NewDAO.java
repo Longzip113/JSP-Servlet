@@ -2,6 +2,8 @@ package com.longnguyen.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.longnguyen.dao.INewDAO;
 import com.longnguyen.mapper.NewMapper;
 import com.longnguyen.model.NewModel;
@@ -22,7 +24,7 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 		sql.append("INSERT INTO news  ");
 		sql.append(" (title, content, thumbnail, shortDescripTion, categoryid, createddate, createdby) ");
 		sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
-		return insert(sql.toString(), newModel.getTitle(), newModel.getContent(), newModel.getThumbnuil(),
+		return insert(sql.toString(), newModel.getTitle(), newModel.getContent(), newModel.getThumbnail(),
 				newModel.getShortDescripTion(), newModel.getCategoryId(), newModel.getCreatedData(),
 				newModel.getCreatedBy());
 	}
@@ -41,7 +43,7 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 		sql.append(" shortDescripTion = ?, content = ?, categoryId = ?,");
 		sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
 
-		update(sql.toString(), newModel.getTitle(), newModel.getThumbnuil(), newModel.getShortDescripTion(),
+		update(sql.toString(), newModel.getTitle(), newModel.getThumbnail(), newModel.getShortDescripTion(),
 				newModel.getContent(), newModel.getCategoryId(), newModel.getCreatedData(), newModel.getCreatedBy(),
 				newModel.getModifiedData(), newModel.getModifiedBy(), newModel.getId());
 
@@ -58,7 +60,9 @@ public class NewDAO extends AbsTractDAO<NewModel> implements INewDAO {
 	public List<NewModel> findAll(Pageble pageble) {
 		// String sql = "SELECT * FROM news LIMIT ?, ?";
 		StringBuilder sql = new StringBuilder("SELECT * FROM news");
-		if (pageble.getSorter() != null) {
+		//Hàm StringUtils.isNotBlank(str) là hàm kiểm tra null và isEmpty
+		if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName()) 
+				&& StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
 			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
 		}
 		if (pageble.getOffset() != null &&pageble.getLimit() != null) {

@@ -4,12 +4,21 @@ public class NewModel extends AbstracsModel<NewModel>{
 
 
 	private String title;
-	private String thumbnuil;
+	private String thumbnail;
 	private String shortDescripTion;
 	private String content;
 	private long categoryId;
+	private String categoryCode;
 
 	
+	
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
 
 	public String getTitle() {
 		return title;
@@ -18,11 +27,11 @@ public class NewModel extends AbstracsModel<NewModel>{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getThumbnuil() {
-		return thumbnuil;
+	public String getThumbnail() {
+		return thumbnail;
 	}
-	public void setThumbnuil(String thumbnuil) {
-		this.thumbnuil = thumbnuil;
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 	public String getShortDescripTion() {
 		return shortDescripTion;

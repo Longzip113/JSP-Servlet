@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AbstracsModel<T> {
 
-	private long id;
+	private Long id;
 	private Timestamp createdData;
 	private Timestamp modifiedData;
 	private String createdBy;
@@ -19,9 +19,31 @@ public class AbstracsModel<T> {
 	private Integer totalItem; // tong so page
 	private String sortName;
 	private String sortBy;
+	private String message;
+	private String alert;
+	private String type;
+	//Hiển thị danh sách bài viết type = list;
+	//thêm sữa xóa bài biết type = edit; 
 	
 	
-	
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getAlert() {
+		return alert;
+	}
+	public void setAlert(String alert) {
+		this.alert = alert;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public Timestamp getCreatedData() {
 		return createdData;
 	}
@@ -46,10 +68,10 @@ public class AbstracsModel<T> {
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Long[] getIds() {

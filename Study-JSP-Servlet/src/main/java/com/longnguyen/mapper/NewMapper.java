@@ -15,7 +15,7 @@ public class NewMapper implements RowMapper<NewModel> {
 			newModel.setTitle(resultSet.getString("title"));
 			newModel.setContent(resultSet.getString("content"));
 			newModel.setCategoryId(resultSet.getLong("categoryId"));
-			newModel.setThumbnuil(resultSet.getString("thumbnail"));
+			newModel.setThumbnail(resultSet.getString("thumbnail"));
 			newModel.setShortDescripTion(resultSet.getString("shortDescripTion"));
 			newModel.setCreatedData(resultSet.getTimestamp("createddate"));
 			newModel.setCreatedBy(resultSet.getString("createdby"));

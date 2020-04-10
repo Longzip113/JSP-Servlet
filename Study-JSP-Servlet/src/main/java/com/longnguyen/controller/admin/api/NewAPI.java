@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.longnguyen.model.NewModel;
+import com.longnguyen.model.UserModel;
 import com.longnguyen.service.INewService;
 import com.longnguyen.utils.HttpUtisl;
+import com.longnguyen.utils.SessionUtil;
 
 @WebServlet(urlPatterns = { "/api-admin-new" })
 public class NewAPI extends HttpServlet {
@@ -31,6 +33,8 @@ public class NewAPI extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		NewModel newModel = HttpUtisl.of(req.getReader()).toModel(NewModel.class); // chuyen file json qua model
+		//Lấy UserName nguoi đang nhập 
+		newModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getFullName());
 		newModel = newService.save(newModel);
 		System.out.println(newModel);
 		objectMapper.writeValue(resp.getOutputStream(), newModel); // xuat du lieu ra cho cliend
@@ -43,6 +47,7 @@ public class NewAPI extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		NewModel updataNew = HttpUtisl.of(req.getReader()).toModel(NewModel.class); // chuyen file json qua model
+		updataNew.setModifiedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getUserName());
 		updataNew = newService.update(updataNew);
 		objectMapper.writeValue(resp.getOutputStream(), updataNew); // xuat du lieu ra cho cliend
 	}
@@ -54,6 +59,7 @@ public class NewAPI extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		NewModel newModel = HttpUtisl.of(req.getReader()).toModel(NewModel.class); // chuyen file json qua model
+		
 		newService.delete(newModel.getIds());
 		objectMapper.writeValue(resp.getOutputStream(), "{}"); // xuat du lieu ra cho cliend
 	}

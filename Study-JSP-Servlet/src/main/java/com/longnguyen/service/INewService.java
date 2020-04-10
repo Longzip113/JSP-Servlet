@@ -12,4 +12,5 @@ public interface INewService {
 	void delete(Long[] ids);
 	List<NewModel> findAll(Pageble pageble);
 	int getTotalItem();
+	NewModel findOne(Long id);
 }
